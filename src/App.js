@@ -3,21 +3,23 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Yellow from './components/Yellow';
 import Green from './components/Green';
 import Blue from './components/Blue';
+import Home from './components/Home';
 
-//default value is lighht
+//default value is light
 
-const AppContext = createContext('light');
+export const AppContext = createContext('light');
 
 //we set the actual value to dark when we pass in another value
-const App = () => {
+function App(){
   return(
     <AppContext.Provider value={'dark'}>
     <BrowserRouter>
     <Routes>
-      <Route path="/yellow" component={<Yellow />}/>
-      <Route path="/blue" component={<Blue />} />
-      <Route path="/green" component={<Green />} />
-    </Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/yellow" element={<Yellow />}/>
+      <Route path="/blue" element={<Blue />} />
+      <Route path="/green" element={<Green />} />
+      </Routes>
     </BrowserRouter>
     </AppContext.Provider>
   )
